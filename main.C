@@ -50,7 +50,8 @@ vector<string> tokenize(string line, const char* delim) {
 	return tokens;
 }
 
-int main() {
+int main() 
+{
 
 	Office KG_Office; //KinderGarten Office
 	const char* delims = " \t\n";
