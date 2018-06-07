@@ -40,7 +40,7 @@ void Class::addTeacher(const Teacher& teacher)
 
 void Class::addChild(const Child& child)
 {
-    unsigned int  = newNum
+    //unsigned int  = newNum
 }
 
 void Class::removeTeacher(const string& name)
@@ -55,5 +55,5 @@ void Class::removeChild(const string& name)
 
 Result Class::setIsSick(const string& name)
 {
-
+	return FAILURE;
 }

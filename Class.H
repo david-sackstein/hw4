@@ -11,6 +11,7 @@
 
 using std::string;
 using std::vector;
+using std::size_t;
 
 class Class : public Room {
 public:
@@ -21,7 +22,7 @@ public:
         unsigned int maxChildren);
 
     size_t getTeachersNum() const { return teachers_.size(); }
-    double getAgeClass() const { return ageClass_; }
+	size_t getAgeClass() const { return ageClass_; }
     double getCurrentRatio() const { return children_.size() / (double)teachers_.size(); }
     string getChildPhoneNumber(const string& name) const;
 
@@ -35,8 +36,8 @@ public:
 private:
 
     double maxRatio_;
-    size_t maxChildren_;
-    size_t ageClass_;
+	std::size_t maxChildren_;
+	std::size_t ageClass_;
     vector<Child> children_;
     vector<Teacher> teachers_;
 };

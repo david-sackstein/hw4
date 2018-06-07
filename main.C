@@ -36,7 +36,7 @@ double stringToDouble(const string s1,const string s2) {
 }
 
 vector<string> tokenize(string line, const char* delim) {
-	unsigned int i, j; 
+	size_t i, j; 
 	vector<string> tokens;
 	while (!line.empty()) {
 		i = line.find_first_not_of(delim);
