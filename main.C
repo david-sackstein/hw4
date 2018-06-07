@@ -50,7 +50,7 @@ vector<string> tokenize(string line, const char* delim) {
 	return tokens;
 }
 
-int main() 
+int main1() 
 {
 
 	Office KG_Office; //KinderGarten Office
@@ -100,3 +100,21 @@ int main()
 	}
 	return 0; 
 };
+
+int main()
+{
+    Person person("Yonatan", 21);
+    person.print();
+
+    Child child("Mary", 6, "054-456789");
+    child.setIsSick();
+    child.print();
+
+    Teacher teacher("Moses", 67, 40);
+    teacher.setSeniority(10);
+    teacher.print();
+
+    Room room(101, 50);
+    room.setOccupied();
+    room.print();
+}

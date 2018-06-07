@@ -12,13 +12,33 @@
 using std::string;
 using std::vector;
 
-class Class : public Room{
+class Class : public Room {
 public:
-// Add your code here ...	
-  	
-private:
-// Add your code here ...
+    Class(unsigned int roomNumber, 
+        unsigned int area, 
+        double maxRatio,
+        unsigned int ageClass, 
+        unsigned int maxChildren);
 
+    size_t getTeachersNum() const { return teachers_.size(); }
+    double getAgeClass() const { return ageClass_; }
+    double getCurrentRatio() const { return children_.size() / (double)teachers_.size(); }
+    string getChildPhoneNumber(const string& name) const;
+
+    void addTeacher(const Teacher& teacher);
+    void addChild(const Child& child);
+    void removeTeacher(const string& name);
+    void removeChild(const string& name);
+
+    Result setIsSick(const string& name);
+
+private:
+
+    double maxRatio_;
+    size_t maxChildren_;
+    size_t ageClass_;
+    vector<Child> children_;
+    vector<Teacher> teachers_;
 };
 
 #endif

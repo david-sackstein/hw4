@@ -9,9 +9,17 @@ using std::string;
 class Person {
 
 public:
-// Add your code here ...
+    Person(const string& name, unsigned int age);
+
+    unsigned int getAge() const { return age_; }
+    const string& getName() const { return name_; }
+
+    void print() const;
+
 private:
-// Add your code here ...
+
+    string name_;
+    unsigned int age_;
 };
 
 #endif
