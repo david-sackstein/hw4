@@ -13,10 +13,32 @@ using std::vector;
 
 class Office : public Room {
 public:
-// Add your code here ...
+	Office();
+
+	Result addClass(unsigned int area, double maxRatio,
+		unsigned int ageClass,
+		unsigned int maxChildren);
+
+	Result addChild(const Child& child);
+	Result addTeacher(const Teacher& teacher);
+
+	Result removeChild(const string& name);
+	Result removeTeacher(const string& name);
+	Result removeClass(size_t age);
+
+	Result setSick(const string& name);
+
+	void print();
+
 
 private:
-// Add your code here ...
+
+	bool isBusy_;
+	string sickName_;
+	vector<Class> classes_;
+
+	Class* getClass(size_t age);
+	Child* Office::getChild(const string& name);
 };
 
 #endif

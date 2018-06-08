@@ -23,15 +23,19 @@ public:
 
     size_t getTeachersNum() const { return teachers_.size(); }
 	size_t getAgeClass() const { return ageClass_; }
-    double getCurrentRatio() const { return children_.size() / (double)teachers_.size(); }
+    double getCurrentRatio() const { return (teachers_.size() == 0) ? -1 : children_.size() / (double)teachers_.size(); }
     string getChildPhoneNumber(const string& name) const;
 
     void addTeacher(const Teacher& teacher);
-    void addChild(const Child& child);
-    void removeTeacher(const string& name);
-    void removeChild(const string& name);
+	Result addChild(const Child& child);
+    Result removeTeacher(const string& name);
+    Result removeChild(const string& name);
 
     Result setIsSick(const string& name);
+
+	void print() const;
+
+	Child* Class::getChild(const string& name);
 
 private:
 

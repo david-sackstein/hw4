@@ -103,18 +103,68 @@ int main1()
 
 int main()
 {
-    Person person("Yonatan", 21);
-    person.print();
+	Child child1("c1", 1, "0541111111");
+	Child child2("c2", 1, "0542222222");
+	Child child3("c3", 1, "0543333333");
+	Child child4("c4", 4, "0504444444");
+	Child child5("c5", 4, "0525555555");
+	Child child6("c6", 10, "0546666666");
+	Child child7("c7", 10, "0547777777");
+	
+	Teacher teacher1("t1", 67, 40);
+	Teacher teacher2("t2", 20, 5);
+	Teacher teacher3("t3", 55, 10);
+	Teacher teacher4("t4", 50, 10);
+	Teacher teacher5("t5", 40, 10);
+	Teacher teacher6("t6", 50, 10);
 
-    Child child("Mary", 6, "054-456789");
-    child.setIsSick();
-    child.print();
+	Result res = SUCCESS;
+    Office office;
+	office.addClass(50, 1, 2, 5);
+	office.addClass(50, 3, 1, 5);
+	office.addClass(50, 2, 4, 5);
+	office.addClass(50, 1, 10, 5);
 
-    Teacher teacher("Moses", 67, 40);
-    teacher.setSeniority(10);
-    teacher.print();
+	office.addTeacher(teacher1);
+	office.addTeacher(teacher2);
+	office.addTeacher(teacher3);
+	office.addTeacher(teacher4);
+	office.addTeacher(teacher5);
+	office.addTeacher(teacher6);
+	office.print();
 
-    Room room(101, 50);
-    room.setOccupied();
-    room.print();
+	office.addChild(child1);
+	office.addChild(child2);
+	office.addChild(child4);
+	office.addChild(child5);
+	office.addChild(child6);
+	office.print();
+
+	office.setSick("c5");
+	cout << "~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~\n\n";
+
+	res = office.addTeacher(teacher5); // not supposed to work
+	office.print();
+
+	cout << "~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~\n\n";
+
+	office.removeChild("c5");
+	office.print();
+
+	cout << "~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~\n\n";
+
+	res = office.addTeacher(teacher5);
+	office.addChild(child3); // can i add the same child ????
+	office.addTeacher(teacher6);
+	office.print();
+
+	cout << "~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~\n\n";
+
+	office.removeTeacher("t5");
+	office.print();
+
+	cout << "~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~\n\n";
+
+	office.removeClass(4);
+	office.print();
 }

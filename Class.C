@@ -6,7 +6,6 @@
 using std::cout;
 using std::endl;
 
-// Add your code here ...
 Class::Class(
     unsigned int roomNumber, unsigned int area,
     double maxRatio, unsigned int ageClass,
@@ -19,9 +18,22 @@ Class::Class(
 {
 }
 
+Child* Class::getChild(const string& name)
+{
+	for (vector<Child>::iterator curr = children_.begin();
+		curr != children_.end();
+		curr++) {
+		Child& child = *curr;
+		if (child.getName() == name) {
+			return &child;
+		}
+	}
+	return NULL;
+}
+
 string Class::getChildPhoneNumber(const string& name) const
 {
-    for (vector<Child>::const_iterator curr = children_.begin(); 
+    for (vector<Child>::const_iterator curr = children_.cbegin(); 
         curr != children_.end(); 
         curr++) {
         const Child& child = *curr;
@@ -38,22 +50,119 @@ void Class::addTeacher(const Teacher& teacher)
     teachers_.push_back(teacher);
 }
 
-void Class::addChild(const Child& child)
+Result Class::addChild(const Child& child)
 {
-    //unsigned int  = newNum
+	if (teachers_.size() == 0)
+		return FAILURE;
+	
+	size_t newClassSize = children_.size() + 1;
+	double newRatio = newClassSize / (double)teachers_.size();
+
+	if (newRatio > maxRatio_ || newClassSize > maxChildren_)
+		return FAILURE;
+
+	children_.push_back(child);
+	return SUCCESS;
 }
 
-void Class::removeTeacher(const string& name)
+Result Class::removeTeacher(const string& name)
 {
+	size_t teacherCount = teachers_.size();
 
+	if (teacherCount <= 1) {
+		return FAILURE;
+	}
+
+	double newRatio =  children_.size() / (double)(teacherCount - 1);
+
+	if (newRatio > maxRatio_) {
+		return FAILURE;
+	}
+
+	for (vector<Teacher>::const_iterator curr = teachers_.cbegin(); //not const anymore?
+		curr != teachers_.end();
+		++curr) {
+
+		const Teacher& teacher = *curr;
+		if (teacher.getName() == name) {
+			teachers_.erase(curr);
+			return SUCCESS;
+		}
+	}
+	return FAILURE;
 }
 
-void Class::removeChild(const string& name)
+Result Class::removeChild(const string& name)
 {
-
+	// TODO: erase child by name - free memory?
+	for (vector<Child>::iterator curr = children_.begin(); //not const anymore?
+		curr != children_.end();
+		++curr) {
+		
+		Child& child = *curr;
+		if (child.getName() == name) {
+			children_.erase(curr);
+			return SUCCESS;
+		}
+	}
+	return FAILURE;
 }
 
 Result Class::setIsSick(const string& name)
 {
+	for (vector<Child>::iterator curr = children_.begin(); //not const anymore?
+		curr != children_.end();
+		curr++) {
+		Child& child = *curr;
+		if (child.getName() == name) {
+			return child.setIsSick();
+		}
+	}
+
 	return FAILURE;
+}
+
+void Class::print() const
+{
+	size_t childrenCount = children_.size();
+	size_t teachersCount = teachers_.size();
+
+	// TODO: what if the paramaters werent inisialized?
+	cout << "Printing class status : \n";
+	cout << "========================\n";
+	Room::print();
+
+	cout << "Max number of children : " << maxChildren_ << "\n";
+	cout << "Number of children : " << childrenCount << "\n";
+	cout << "Number of teachers : " << teachersCount << "\n";
+	cout << "Max value for ratio : " << maxRatio_ << "\n";
+	cout << "Current ratio : " << getCurrentRatio() << "\n";
+	cout << "Children age range : " << ageClass_ << " - " << (ageClass_ + 1) << "\n";
+	cout << "\n";
+
+	if (childrenCount != 0)
+	{
+		cout << "Printing childrens status : \n";
+		cout << "========================\n";
+		for (vector<Child>::const_iterator curr = children_.begin();
+			curr != children_.end();
+			curr++) {
+			const Child& child = *curr;
+			child.print();
+		}
+		cout << "\n";
+	}
+
+	if (teachersCount != 0)
+	{
+		cout << "Printing teachers status : \n";
+		cout << "========================\n";
+		for (vector<Teacher>::const_iterator curr = teachers_.begin();
+			curr != teachers_.end();
+			curr++) {
+			const Teacher& teacher = *curr;
+			teacher.print();
+		}
+		cout << "\n";
+	}
 }
