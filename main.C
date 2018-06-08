@@ -170,6 +170,8 @@ void sickChild(Office& office, const vector<string>& tokens)
     ShowError(tokens);
 }
 
+#include <fstream>
+
 int main()
 {
     Office KG_Office; //KinderGarten Office
@@ -178,8 +180,10 @@ int main()
     string line;
     unsigned int lineNumber = 1;
 
-    while (!cin.eof()) {
-        getline(cin, line);
+    std::ifstream input("input1.txt");
+
+    while (!input.eof()) {
+        getline(input, line);
         tokens = tokenize(line, delims);
         if (tokens.size() == 0) { //empty line
             continue;
@@ -188,35 +192,30 @@ int main()
         if (tokens[0] == "addClass") {
             addClass(KG_Office, tokens);
         }
-        
-        if (tokens[0] == "removeClass") {
+        else if (tokens[0] == "removeClass") {
             removeClass(KG_Office, tokens);
         }
-        
-        if (tokens[0] == "addChild") {
+        else if (tokens[0] == "addChild") {
             addChild(KG_Office, tokens);
         }
-
-        if (tokens[0] == "addTeacher") {
+        else if (tokens[0] == "addTeacher") {
             addTeacher(KG_Office, tokens);
         }
-
-        if (tokens[0] == "removeChild") {
+        else if (tokens[0] == "removeChild") {
             removeChild(KG_Office, tokens);
         }
-
-        if (tokens[0] == "removeTeacher") {
+        else if (tokens[0] == "removeTeacher") {
             removeTeacher(KG_Office, tokens);
         }
-
-        if (tokens[0] == "PrintKindergarten") {
+        else if (tokens[0] == "PrintKindergarten") {
             printKindergarten(KG_Office, tokens);
         }
-
-        if (tokens[0] == "sickChild") {
+        else if (tokens[0] == "sickChild") {
             sickChild(KG_Office, tokens);
         }
-
+        else {
+            ShowError(tokens);
+        }
         lineNumber++;
     }
     return 0;
