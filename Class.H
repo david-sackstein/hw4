@@ -1,13 +1,14 @@
 #ifndef _CLASS_H_
 #define _CLASS_H_
 
-#include <string>
-#include <iostream>
-#include <vector>
 #include "defs.H"
 #include "Room.H"
 #include "Child.H"
 #include "Teacher.H"
+
+#include <string>
+#include <iostream>
+#include <vector>
 
 using std::string;
 using std::vector;
@@ -23,7 +24,9 @@ public:
 
     size_t getTeachersNum() const { return teachers_.size(); }
 	size_t getAgeClass() const { return ageClass_; }
-    double getCurrentRatio() const { return (teachers_.size() == 0) ? -1 : children_.size() / (double)teachers_.size(); }
+    double getCurrentRatio() const { 
+        return (teachers_.size() == 0) ? -1 : children_.size() / (double)teachers_.size(); 
+    }
     string getChildPhoneNumber(const string& name) const;
 
     void addTeacher(const Teacher& teacher);
@@ -35,13 +38,11 @@ public:
 
 	void print() const;
 
-	Child* Class::getChild(const string& name);
-
 private:
 
     double maxRatio_;
-	std::size_t maxChildren_;
 	std::size_t ageClass_;
+    std::size_t maxChildren_;
     vector<Child> children_;
     vector<Teacher> teachers_;
 };

@@ -27,18 +27,16 @@ public:
 	Result removeClass(size_t age);
 
 	Result setSick(const string& name);
-
 	void print();
-
 
 private:
 
-	bool isBusy_;
+    vector<Class>::iterator findClassToAddTeacher(const Teacher& teacher);
+    vector<Class>::iterator findClassByAge(size_t age);
+    
+    bool isBusy_;
 	string sickName_;
 	vector<Class> classes_;
-
-	Class* getClass(size_t age);
-	Child* Office::getChild(const string& name);
 };
 
 #endif

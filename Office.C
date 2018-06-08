@@ -9,122 +9,71 @@ using std::boolalpha;
 
 Office::Office() :
 	Room(1, 20),
-	isBusy_(false),
-	sickName_("")
+	isBusy_(false)
 {
 	setOccupied();
-}
-
-Class* Office::getClass(size_t age)
-{
-	for (vector<Class>::iterator curr = classes_.begin();
-		curr != classes_.end();
-		++curr) {
-		Class& myClass = *curr;
-		if (myClass.getAgeClass() == age)
-			return &myClass;
-	}
-	return NULL;
-}
-
-Child* Office::getChild(const string& name)
-{
-	for (vector<Class>::iterator curr = classes_.begin();
-		curr != classes_.end();
-		++curr) {
-
-		Class& myClass = *curr;
-		Child* child = myClass.getChild(name);
-		if (child != NULL)
-			return child;
-	}
-	return NULL;
 }
 
 Result Office::addClass(unsigned int area, double maxRatio,
 	unsigned int ageClass,
 	unsigned int maxChildren)
 {
-	if (isBusy_)
-		return FAILURE;
+    if (isBusy_) {
+        return FAILURE;
+    }
 
-	if (getClass(ageClass) != NULL)
-		return FAILURE;
+    if (findClassByAge(ageClass) != classes_.end()) {
+        return FAILURE;
+    }
 
-	Class newClass = Class(classes_.size() + 2, area, maxRatio, ageClass, maxChildren);
-	classes_.push_back(newClass);
+	classes_.push_back(
+        Class(
+            classes_.size() + 2, 
+            area, maxRatio, 
+            ageClass, 
+            maxChildren));
 
 	return SUCCESS;
 }
 
 Result Office::addChild(const Child& child)
 {
-	if (isBusy_)
-		return FAILURE;
+    if (isBusy_) {
+        return FAILURE;
+    }
 
-	Class* myClass = getClass(child.getAge());
-	if (myClass == NULL)
-		return FAILURE;
+    vector<Class>::iterator classit = findClassByAge(child.getAge());
+    if (classit == classes_.end()) {
+        return FAILURE;
+    }
 
-	(*myClass).addChild(child);
+    classit->addChild(child);
 	return SUCCESS;
 }
 
 Result Office::addTeacher(const Teacher& teacher)
 {
-	if (isBusy_)
-		return FAILURE;
+    if (isBusy_) {
+        return FAILURE;
+    }
 
-	// find most crowded ratio and min number of teachers
-	// if an empty class is found -- add teacher
+    vector<Class>::iterator it = findClassToAddTeacher(teacher);
+    if (it == classes_.end()) {
+        return FAILURE;
+    }
 
-	double maxRatio = (*classes_.begin()).getCurrentRatio();
-	size_t minTeachers = (*classes_.begin()).getTeachersNum();
-	for (vector<Class>::iterator curr = classes_.begin(); // i had to remove const due to addTeacher
-		curr != classes_.end(); ++curr)
-	{
-		Class& myClass = *curr;
-	
-		if (!myClass.getIsOccupied())
-		{
-			myClass.addTeacher(teacher);
-			myClass.setOccupied();
-			return SUCCESS;
-		}
-		
-		double currRatio = myClass.getCurrentRatio();
-		size_t currTeachersCount = myClass.getTeachersNum();
-		if (currRatio > maxRatio)
-		{
-			maxRatio = currRatio;
-		}
-		if (minTeachers > currTeachersCount)
-		{
-			minTeachers = currTeachersCount;
-		}
-	}
+    it->addTeacher(teacher);
+    it->setOccupied();
 
-	// add teacher to first minTeachers class
-	for (vector<Class>::iterator curr = classes_.begin();
-		curr != classes_.end(); ++curr)
-	{
-		Class& myClass = *curr;
-
-		if (myClass.getTeachersNum() == minTeachers)
-		{
-			myClass.addTeacher(teacher);
-			return SUCCESS;
-		}
-	}
-
-	return FAILURE;
+    return SUCCESS;
 }
 
 Result Office::removeChild(const string& name)
 {
-	bool isChildSick = name == sickName_;
-	if (isBusy_ && !isChildSick) // when busy - remove the sick child only
-		return FAILURE;
+	bool isChildSick = name == sickName_; // check classes_.empty()
+    if (isBusy_ && !isChildSick) {// when busy - remove the sick child only
+        return FAILURE;
+    }
 
 	// try removing the child from every class untill there is SUCCESS (= the child was found and deleted)
 	
@@ -132,9 +81,7 @@ Result Office::removeChild(const string& name)
 		curr != classes_.end();
 		++curr)
 	{
-		Class& myClass = *curr;
-
-		if (myClass.removeChild(name) == SUCCESS)
+		if (curr->removeChild(name) == SUCCESS)
 		{
 			if (isChildSick)
 			{
@@ -150,8 +97,9 @@ Result Office::removeChild(const string& name)
 
 Result Office::removeTeacher(const string& name)
 {
-	if (isBusy_)
-		return FAILURE;
+    if (isBusy_) {
+        return FAILURE;
+    }
 
 	// try removing the teacher from every class untill there is SUCCESS (= the teacher was found and deleted)
 
@@ -159,9 +107,7 @@ Result Office::removeTeacher(const string& name)
 		curr != classes_.end();
 		++curr)
 	{
-		Class& myClass = *curr;
-
-		if (myClass.removeTeacher(name) == SUCCESS)
+		if (curr->removeTeacher(name) == SUCCESS)
 		{
 			return SUCCESS;
 		}
@@ -172,55 +118,67 @@ Result Office::removeTeacher(const string& name)
 
 Result Office::removeClass(size_t age)
 {
-	if (isBusy_)
-		return FAILURE;
+    if (isBusy_) {
+        return FAILURE;
+    }
 
 	for (vector<Class>::const_iterator curr = classes_.cbegin();
 		curr != classes_.end();
 		++curr) {
 
-		const Class& myClass = *curr;
-		if (myClass.getAgeClass() == age) {
+		if (curr->getAgeClass() == age) {
 			classes_.erase(curr);
 			return SUCCESS;
 		}
 	}
-
 
 	return FAILURE;
 }
 
 bool isValidPhoneNumber(const string& number)
 {
-	return (number.length() == 10) && (number[0] == '0') && (number[1] == '5')
-		? true
-		: false;
+    return 
+        (number.length() == 10) && 
+        (number[0] == '0') && 
+        (number[1] == '5');
 }
 
 Result Office::setSick(const string& name)
 {
-	if (isBusy_)
-		return FAILURE;
+    if (isBusy_) {
+        return FAILURE;
+    }
 
-	Child* child = getChild(name);
-	if (child == NULL)
-		return FAILURE;
+    for (vector<Class>::iterator curr = classes_.begin();
+        curr != classes_.end();
+        ++curr) {
 
-	string phoneNumber = (*child).getPhoneNumber();
-	if (!isValidPhoneNumber(phoneNumber))
-		return FAILURE;
+        Class& currClass = *curr;
+    
+        string phoneNumber = currClass.getChildPhoneNumber(name);
 
-	if ((*child).setIsSick() != SUCCESS)
-		return FAILURE;
-	
-	sickName_ = (*child).getName();
-	isBusy_ = true;
+        if (phoneNumber == "No Child") {
+            continue;
+        }
 
-	cout << "Reporting sick child : \n";
-	cout << "Name : " << (*child).getName() << "\n";
-	cout << "Parent's phone number : " << phoneNumber << "\n";
+        if (!isValidPhoneNumber(phoneNumber)) {
+            return FAILURE;
+        }
 
-	return SUCCESS;
+        if (currClass.setIsSick(name) != SUCCESS) {
+            return FAILURE;
+        }
+
+        sickName_ = name;
+        isBusy_ = true;
+
+        cout << "Reporting sick child : \n";
+        cout << "Name : " << name << "\n";
+        cout << "Parent's phone number : " << phoneNumber << "\n";
+   
+        return SUCCESS;
+    }
+    return FAILURE;
 }
 
 void Office::print()
@@ -245,3 +203,56 @@ void Office::print()
 	}
 }
 
+vector<Class>::iterator Office::findClassToAddTeacher(const Teacher& teacher)
+{
+    if (classes_.empty()) {
+        return classes_.end();
+    }
+
+    Class& first = *classes_.begin();
+
+    double maxRatio = first.getCurrentRatio();
+    vector<Class>::iterator argMaxRatio = classes_.end();
+
+    size_t minTeachers = first.getTeachersNum();
+    vector<Class>::iterator argMinTeachers = classes_.end();
+
+    for (vector<Class>::iterator curr = classes_.begin();
+        curr != classes_.end();
+        ++curr)
+    {
+        if (!curr->getIsOccupied())
+        {
+            return curr;
+        }
+
+        double currRatio = curr->getCurrentRatio();
+        size_t currTeachersCount = curr->getTeachersNum();
+
+        if (currRatio > maxRatio)
+        {
+            maxRatio = currRatio;
+            argMaxRatio = curr;
+        }
+
+        if (currTeachersCount < minTeachers) // not <= so we catch the first
+        {
+            minTeachers = currTeachersCount;
+            argMinTeachers = curr;
+        }
+    }
+
+    return (maxRatio == 0.0) ? argMinTeachers : argMaxRatio;
+}
+
+vector<Class>::iterator Office::findClassByAge(size_t age)
+{
+    for (vector<Class>::iterator curr = classes_.begin();
+        curr != classes_.end();
+        ++curr) {
+        if (curr->getAgeClass() == age) {
+            return curr;
+        }
+    }
+    return classes_.end();
+}

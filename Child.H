@@ -12,7 +12,10 @@ class Child : public Person {
 
 public:
 
-    Child(const string& name, unsigned int age, const string& phoneNumber);
+    Child(
+        const string& name, 
+        unsigned int age, 
+        const string& phoneNumber);
 
     const string& getPhoneNumber() const { return phoneNumber_; }
 

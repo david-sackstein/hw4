@@ -9,7 +9,7 @@ using std::string;
 class Room {
 public:
 
-    Room(unsigned int roomNumber = 0, unsigned int area = 0);
+    Room(unsigned int roomNumber, unsigned int area);
 
     unsigned int getRoomNumber() const { return roomNumber_; }
     bool getIsOccupied() const { return isOccupied_; }
