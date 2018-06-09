@@ -25,7 +25,7 @@ public:
     size_t getTeachersNum() const { return teachers_.size(); }
 	size_t getAgeClass() const { return ageClass_; }
     double getCurrentRatio() const { 
-        return (teachers_.size() == 0) ? -1 : children_.size() / (double)teachers_.size(); 
+        return (teachers_.size() == 0) ? 0 : children_.size() / (double)teachers_.size(); 
     }
     string getChildPhoneNumber(const string& name) const;
 

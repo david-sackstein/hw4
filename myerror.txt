@@ -3,7 +3,6 @@ Failed - removeChild tal
 Failed - removeClass 3
 Failed - removeTeacher rachel
 Failed - removeTeacher sara
-Failed - addTeacher 50 rachel 10
 Failed - sickChild gili
 Failed - removeTeacher dalia
 Failed - addClass 45 2.250 20 2

@@ -112,7 +112,7 @@ Max number of children : 30
 Number of children : 0
 Number of teachers : 0
 Max value for ratio : 4.5
-Current ratio : -1
+Current ratio : 0
 Children age range : 3 - 4
 
 Printing class status : 
@@ -124,7 +124,7 @@ Max number of children : 5
 Number of children : 0
 Number of teachers : 0
 Max value for ratio : 2
-Current ratio : -1
+Current ratio : 0
 Children age range : 1 - 2
 
 Reporting sick child : 
@@ -145,9 +145,9 @@ Size : 60 square meters
 Is Occupied : true
 Max number of children : 20
 Number of children : 2
-Number of teachers : 1
+Number of teachers : 2
 Max value for ratio : 3.25
-Current ratio : 2
+Current ratio : 1
 Children age range : 2 - 3
 
 Printing childrens status : 
@@ -166,6 +166,9 @@ Printing teachers status :
 Name : sara
 Age : 40
 Seniority : 5
+Name : rachel
+Age : 50
+Seniority : 10
 
 Printing class status : 
 ========================

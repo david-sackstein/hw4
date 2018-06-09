@@ -16,7 +16,7 @@ Room::Room(unsigned int roomNumber, unsigned int area) :
 void Room::print() const
 {
     cout << "Number : " << roomNumber_ << "\n";
-    cout << "Size: " << area_ << " square meters\n";
+    cout << "Size : " << area_ << " square meters \n";
     cout << "Is Occupied : " << boolalpha << isOccupied_ << "\n";
 }
 

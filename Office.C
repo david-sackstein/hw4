@@ -209,13 +209,13 @@ vector<Class>::iterator Office::findClassToAddTeacher(const Teacher& teacher)
         return classes_.end();
     }
 
-    Class& first = *classes_.begin();
+	vector<Class>::iterator begin = classes_.begin();
 
-    double maxRatio = first.getCurrentRatio();
-    vector<Class>::iterator argMaxRatio = classes_.end();
+    double maxRatio = begin->getCurrentRatio();
+    vector<Class>::iterator argMaxRatio = begin;
 
-    size_t minTeachers = first.getTeachersNum();
-    vector<Class>::iterator argMinTeachers = classes_.end();
+    size_t minTeachers = begin->getTeachersNum();
+    vector<Class>::iterator argMinTeachers = begin;
 
     for (vector<Class>::iterator curr = classes_.begin();
         curr != classes_.end();
