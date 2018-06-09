@@ -28,7 +28,7 @@ Result Office::addClass(unsigned int area, double maxRatio,
 
 	classes_.push_back(
         Class(
-            classes_.size() + 2, 
+            (unsigned int)(classes_.size() + 2), 
             area, maxRatio, 
             ageClass, 
             maxChildren));
@@ -183,7 +183,7 @@ Result Office::setSick(const string& name)
 
 void Office::print()
 {
-	cout << "Printing office status : \n";
+	cout << "Printing office status : " << std::endl;
 	cout << "========================\n";
 	Room::print();
 

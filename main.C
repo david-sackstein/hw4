@@ -40,6 +40,9 @@ vector<string> tokenize(string line, const char* delim) {
     vector<string> tokens;
     while (!line.empty()) {
         i = line.find_first_not_of(delim);
+		if (i == std::string::npos) {
+			return tokens;
+		}
         j = line.find_first_of(delim, i + 1);
         tokens.push_back(line.substr(i, j - i));
         if (j > line.size() - 1)
@@ -52,11 +55,11 @@ vector<string> tokenize(string line, const char* delim) {
 
 void ShowError(const vector<string>& tokens)
 {
-    cerr << "Failed - ";
+    cerr << "Failed -";
 
     for (size_t i = 0; i < tokens.size(); ++i)
     {
-        cerr << tokens[i] << " ";
+        cerr << " " << tokens[i];
     }
 
     cerr << "\n";
@@ -68,7 +71,7 @@ void addClass(Office& office, const vector<string>& tokens)
         int size = stringToInt(tokens[1]);
         vector<string> decimalParts = tokenize(tokens[2], ".");
         double ratio = stringToDouble(decimalParts[0], decimalParts[1]);
-        int max_num_children = stringToInt(tokens[3]);
+        unsigned int max_num_children = stringToInt(tokens[3]);
         int children_age = stringToInt(tokens[4]);
 
         Result result = office.addClass(size, ratio, children_age, max_num_children);
@@ -175,7 +178,7 @@ void sickChild(Office& office, const vector<string>& tokens)
 int main()
 {
     Office KG_Office; //KinderGarten Office
-    const char* delims = " \t\n";
+    const char* delims = " \t\n\r";
     vector<string> tokens;
     string line;
     unsigned int lineNumber = 1;
@@ -183,9 +186,10 @@ int main()
     std::ifstream input("input1.txt");
 
     while (!input.eof()) {
-        getline(input, line);
+
+		getline(input, line);
         tokens = tokenize(line, delims);
-        if (tokens.size() == 0) { //empty line
+		if (tokens.size() == 0) { //empty line
             continue;
         }
 
@@ -207,8 +211,8 @@ int main()
         else if (tokens[0] == "removeTeacher") {
             removeTeacher(KG_Office, tokens);
         }
-        else if (tokens[0] == "PrintKindergarten") {
-            printKindergarten(KG_Office, tokens);
+		else if (tokens[0] == "PrintKindergarten") {
+			printKindergarten(KG_Office, tokens);
         }
         else if (tokens[0] == "sickChild") {
             sickChild(KG_Office, tokens);
@@ -238,7 +242,6 @@ int main2()
     Teacher teacher5("t5", 40, 10);
     Teacher teacher6("t6", 50, 10);
 
-    Result res = SUCCESS;
     Office office;
     office.addClass(50, 1, 2, 5);
     office.addClass(50, 3, 1, 5);
@@ -263,7 +266,7 @@ int main2()
     office.setSick("c5");
     cout << "~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~\n\n";
 
-    res = office.addTeacher(teacher5); // not supposed to work
+    Result res = office.addTeacher(teacher5); // not supposed to work
     office.print();
 
     cout << "~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~~~~~~~~~~~~\\\\\\\\~~~~~~~~~~~\n\n";
@@ -288,5 +291,7 @@ int main2()
     office.removeClass(4);
     office.print();
 
+	if (res == FAILURE)
+		return 1;
     return 0;
 }
