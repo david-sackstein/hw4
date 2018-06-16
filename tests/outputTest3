@@ -1,0 +1,89 @@
+Printing office status : 
+========================
+Number : 1
+Size : 20 square meters 
+Is Occupied : true
+Office is busy : false
+
+Printing class status : 
+========================
+Number : 2
+Size : 60 square meters 
+Is Occupied : true
+Max number of children : 20
+Number of children : 3
+Number of teachers : 3
+Max value for ratio : 1.6
+Current ratio : 1
+Children age range : 2 - 3
+
+Printing childrens status : 
+========================
+Name : dana
+Age : 2
+Parent's Phone : 0598765432
+Is sick : false
+Name : dani
+Age : 2
+Parent's Phone : 0546123456
+Is sick : false
+Name : tom
+Age : 2
+Parent's Phone : 0545555555
+Is sick : false
+
+Printing teachers status : 
+========================
+Name : sara
+Age : 40
+Seniority : 5
+Name : dalia
+Age : 45
+Seniority : 10
+Name : rona
+Age : 45
+Seniority : 10
+
+Printing office status : 
+========================
+Number : 1
+Size : 20 square meters 
+Is Occupied : true
+Office is busy : false
+
+Printing class status : 
+========================
+Number : 2
+Size : 60 square meters 
+Is Occupied : true
+Max number of children : 20
+Number of children : 3
+Number of teachers : 2
+Max value for ratio : 1.6
+Current ratio : 1.5
+Children age range : 2 - 3
+
+Printing childrens status : 
+========================
+Name : dana
+Age : 2
+Parent's Phone : 0598765432
+Is sick : false
+Name : dani
+Age : 2
+Parent's Phone : 0546123456
+Is sick : false
+Name : tom
+Age : 2
+Parent's Phone : 0545555555
+Is sick : false
+
+Printing teachers status : 
+========================
+Name : dalia
+Age : 45
+Seniority : 10
+Name : rona
+Age : 45
+Seniority : 10
+

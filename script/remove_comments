@@ -1,0 +1,19 @@
+ #!/bin/bash
+rm -r newDir
+mkdir  "$1"
+
+#cp -r "$PWD"/* "$1"
+
+
+#    egrep -v // "$file" > tmp_file
+#    mv tmp_file "$file"
+for file in *; do
+	test "$file" != "$1" && cp "$file" "$1/"
+done
+
+for file in "$1"/*; do
+	grep -v '^ *	*//' "$file" > tmp_file
+	mv tmp_file "$file"
+done
+
+rm "$1/remove_comments"

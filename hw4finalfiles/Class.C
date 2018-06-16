@@ -35,9 +35,9 @@ Class::Class(
 //  Paramaters    : name - reference pointer to name str
 //  Return value  : None.
 //**********************************************************
-string Class::getChildPhoneNumber(const string& name)
+string Class::getChildPhoneNumber(const string& name) const
 {
-    for (vector<Child>::iterator curr = children_.begin(); 
+    for (vector<Child>::const_iterator curr = children_.cbegin(); 
         curr != children_.end(); 
         curr++) {
         if (curr->getName() == name) {
@@ -106,7 +106,7 @@ Result Class::removeTeacher(const string& name)
 		return FAILURE;
 	}
 
-	for (vector<Teacher>::iterator curr = teachers_.begin();
+	for (vector<Teacher>::const_iterator curr = teachers_.cbegin();
 		curr != teachers_.end();
 		++curr) {
 
@@ -127,7 +127,7 @@ Result Class::removeTeacher(const string& name)
 //**********************************************************
 Result Class::removeChild(const string& name)
 {
-	for (vector<Child>::iterator curr = children_.begin();
+	for (vector<Child>::const_iterator curr = children_.cbegin();
 		curr != children_.end();
 		++curr) {
 		

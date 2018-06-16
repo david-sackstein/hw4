@@ -1,0 +1,56 @@
+And somtimes, they aren't ><
+addClass 1 1.500 3
+removeClass
+addChild 1
+addTeacher 3 notgood
+removeChild ted takeiteasy
+PrintKindergarten
+removeTeacher nahh nahh
+PrintKindergarten nope
+sichChild
+Let the tests begin
+addClass 1 78.500 100 2
+addClass 60 98.125 10 3
+addTeacher 90 lily1 2
+addChild 2 barney2 0542142239
+addChild 2 barney3 02313
+addChild 2 barney4 02313
+addChild 2 barney5 02313
+addChild 2 barney6 02313
+addChild 2 barney7 02313
+addChild 2 barney8 02313
+addChild 2 barney9 02313
+addChild 2 barney10 02313
+addChild 2 barney11 02313
+addChild 2 barney12 02313
+addChild 2 barney13 02313
+PrintKindergarten
+
+addTeacher 90 lily2 3
+addTeacher 91 lily4 3
+addChild 3 brney2 0542142239
+addChild 3 brney3 02313
+addChild 3 brney4 02313
+addChild 3 brney5 02313
+addChild 3 brney6 02313
+addChild 3 brney7 02313
+addChild 3 brney8 02313
+addChild 3 brney9 02313
+addChild 3 brney10 02313
+addChild 3 brney11 02313
+addChild 3 brney12 02313
+addChild 3 brney13 02313
+PrintKindergarten
+sickChild barney2
+addClass 1 1.500 5
+removeClass 2
+addChild 2 barney67 02313
+addTeacher 90 lily88 3
+removeChild barney10
+removeTeacher lily2
+PrintKindergarten
+sickChild barney13
+removeChild barney2
+addChild 3 brney76 02313
+PrintKindergarten
+removeTeacher lily2

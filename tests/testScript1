@@ -1,0 +1,116 @@
+#! /bin/bash
+
+#course
+echo "Test course:"
+../Kindergarten < input1.txt > test_c.out 2> error_c.out
+diff output1.txt  test_c.out
+diff error1.txt  error_c.out
+
+cat input1.txt | valgrind --tool=memcheck --leak-check=full ../Kindergarten  > valcheck1 2>&1
+# extract the number of errors from the log
+LOG_ERROR=$(cat valcheck1 | grep "ERROR SUMMARY:" | cut -d' ' -f4)
+
+if [ $LOG_ERROR = 0 ]
+then
+        echo "Memory V"
+else
+        echo "Memory X"
+fi
+
+#three
+echo "Test 1:"
+../Kindergarten < test1 > test_1.out 2> error_1.out
+diff outputTest1  test_1.out
+diff errorsTest1  error_1.out
+
+cat test1 | valgrind --tool=memcheck --leak-check=full ../Kindergarten  > valcheck 2>&1
+# extract the number of errors from the log
+LOG_ERROR=$(cat valcheck | grep "ERROR SUMMARY:" | cut -d' ' -f4)
+
+if [ $LOG_ERROR = 0 ]
+then
+        echo "Memory V"
+else
+        echo "Memory X"
+fi
+
+echo "Test 2:"
+../Kindergarten < test2 > test_2.out 2> error_2.out
+diff outputTest2  test_2.out
+diff errorsTest2  error_2.out
+
+cat test2 | valgrind --tool=memcheck --leak-check=full ../Kindergarten  > valcheck 2>&1
+# extract the number of errors from the log
+LOG_ERROR=$(cat valcheck | grep "ERROR SUMMARY:" | cut -d' ' -f4)
+
+if [ $LOG_ERROR = 0 ]
+then
+        echo "Memory V"
+else
+        echo "Memory X"
+fi
+
+echo "Test 3:"
+../Kindergarten < test3 > test_3.out 2> error_3.out
+diff outputTest3  test_3.out
+diff errorsTest3  error_3.out
+
+cat test3 | valgrind --tool=memcheck --leak-check=full ../Kindergarten  > valcheck 2>&1
+# extract the number of errors from the log
+LOG_ERROR=$(cat valcheck | grep "ERROR SUMMARY:" | cut -d' ' -f4)
+
+if [ $LOG_ERROR = 0 ]
+then
+        echo "Memory V"
+else
+        echo "Memory X"
+fi
+
+#niki
+echo "Test niki1:"
+../Kindergarten < test1niki > test_niki_1.out 2> error_niki_1.out
+diff nikiout1  test_niki_1.out
+diff nikierr1  error_niki_1.out
+
+cat test1niki | valgrind --tool=memcheck --leak-check=full ../Kindergarten  > valcheck 2>&1
+# extract the number of errors from the log
+LOG_ERROR=$(cat valcheck | grep "ERROR SUMMARY:" | cut -d' ' -f4)
+
+if [ $LOG_ERROR = 0 ]
+then
+        echo "Memory V"
+else
+        echo "Memory X"
+fi
+
+echo "Test niki2:"
+../Kindergarten < test2niki > test_niki_2.out 2> error_niki_2.out
+diff nikiout2  test_niki_2.out
+diff nikierr2  error_niki_2.out
+
+cat test2niki | valgrind --tool=memcheck --leak-check=full ../Kindergarten  > valcheck 2>&1
+# extract the number of errors from the log
+LOG_ERROR=$(cat valcheck | grep "ERROR SUMMARY:" | cut -d' ' -f4)
+
+if [ $LOG_ERROR = 0 ]
+then
+        echo "Memory V"
+else
+        echo "Memory X"
+fi
+
+echo "Test niki3:"
+../Kindergarten < test3niki > test_niki_3.out 2> error_niki_3.out
+diff nikiout3  test_niki_3.out
+diff nikierr3  error_niki_3.out
+
+cat test3niki | valgrind --tool=memcheck --leak-check=full ../Kindergarten  > valcheck 2>&1
+# extract the number of errors from the log
+LOG_ERROR=$(cat valcheck | grep "ERROR SUMMARY:" | cut -d' ' -f4)
+
+if [ $LOG_ERROR = 0 ]
+then
+        echo "Memory V"
+else
+        echo "Memory X"
+fi

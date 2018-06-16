@@ -165,14 +165,13 @@
     <ClInclude Include="Teacher.H" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="actual.txt" />
-    <Text Include="error1.txt" />
-    <Text Include="input1.txt" />
-    <Text Include="output1.txt" />
     <Text Include="Ref.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="errorsTest2" />
+    <None Include="outputTest2" />
     <None Include="README.md" />
+    <None Include="test2" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

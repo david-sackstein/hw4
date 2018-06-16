@@ -1,0 +1,93 @@
+Printing office status : 
+========================
+Number : 1
+Size : 20 square meters 
+Is Occupied : true
+Office is busy : false
+
+Printing class status : 
+========================
+Number : 2
+Size : 50 square meters 
+Is Occupied : true
+Max number of children : 10
+Number of children : 1
+Number of teachers : 1
+Max value for ratio : 4.2
+Current ratio : 1
+Children age range : 3 - 4
+
+Printing childrens status : 
+========================
+Name : avihai
+Age : 3
+Parent's Phone : 0583765844
+Is sick : false
+
+Printing teachers status : 
+========================
+Name : Moran
+Age : 26
+Seniority : 5
+
+Reporting sick child : 
+Name : avihai
+Parent's phone number : 0583765844
+Printing office status : 
+========================
+Number : 1
+Size : 20 square meters 
+Is Occupied : true
+Office is busy : true
+Sick child : avihai
+
+Printing class status : 
+========================
+Number : 2
+Size : 50 square meters 
+Is Occupied : true
+Max number of children : 10
+Number of children : 1
+Number of teachers : 1
+Max value for ratio : 4.2
+Current ratio : 1
+Children age range : 3 - 4
+
+Printing childrens status : 
+========================
+Name : avihai
+Age : 3
+Parent's Phone : 0583765844
+Is sick : true
+
+Printing teachers status : 
+========================
+Name : Moran
+Age : 26
+Seniority : 5
+
+Printing office status : 
+========================
+Number : 1
+Size : 20 square meters 
+Is Occupied : true
+Office is busy : false
+
+Printing class status : 
+========================
+Number : 2
+Size : 50 square meters 
+Is Occupied : true
+Max number of children : 10
+Number of children : 0
+Number of teachers : 1
+Max value for ratio : 4.2
+Current ratio : 0
+Children age range : 3 - 4
+
+Printing teachers status : 
+========================
+Name : Moran
+Age : 26
+Seniority : 5
+

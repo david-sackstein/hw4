@@ -1,0 +1,41 @@
+Create Battlefield
+PrintKindergarten
+PrintKindergarten
+addClass 3 2.000 5 2
+addClass 3 3.000 5 3
+addClass 3 4.000 5 4
+addTeacher 20 lily2 6
+addTeacher 40 lily3 7
+addChild 4 niki1 0542142239
+addChild 4 niki2 0542142239
+PrintKindergarten
+addChild 4 niki23 0542142239
+addTeacher 50 lily4 2
+addTeacher 60 lily5 1
+addChild 3 ouch 
+addTeacher 17 lily6 5
+PrintKindergarten
+addChild 2 ofry 23923923
+addTeacher 2 mama1 5
+addTeacher 4 mama2 5
+addChild 4 DAM 123
+PrintKindergarten
+addTeacher 77 mama3 5
+addTeacher 77 yosef 5
+addChild 3 hi 
+removeTeacher mama1
+removeTeacher mama4
+removeTeacher lily6
+PrintKindergarten
+removeTeacher Rami
+addClass 3 2.000 5 2
+addClass 3 2.000 5 4
+removeChild niki1
+removeTeacher 
+removeTeacher mama3
+removeChild ofry
+removeChild nik2
+PrintKindergarten
+removeTeacher lily22
+removeTeacher lily4
+PrintKindergarten

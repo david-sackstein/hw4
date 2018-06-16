@@ -27,7 +27,7 @@ public:
     double getCurrentRatio() const { 
         return (teachers_.size() == 0) ? 0 : children_.size() / (double)teachers_.size(); 
     }
-    string getChildPhoneNumber(const string& name);
+    string getChildPhoneNumber(const string& name) const;
 
     void addTeacher(const Teacher& teacher);
 	Result addChild(const Child& child);

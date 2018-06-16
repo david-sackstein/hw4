@@ -1,0 +1,17 @@
+addClass 60 1.600 20 2
+
+addTeacher 40 sara 5
+addTeacher 45 dalia 10
+addTeacher 45 rona 10
+
+addChild 2 dana 0598765432
+addChild 2 dani 0546123456
+addChild 2 tom 0545555555
+
+PrintKindergarten
+
+removeTeacher sara
+removeTeacher dalia
+
+PrintKindergarten
+

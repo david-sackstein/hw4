@@ -1,0 +1,239 @@
+Printing office status : 
+========================
+Number : 1
+Size : 20 square meters 
+Is Occupied : true
+Office is busy : false
+
+Printing class status : 
+========================
+Number : 2
+Size : 1 square meters 
+Is Occupied : false
+Max number of children : 3
+Number of children : 0
+Number of teachers : 0
+Max value for ratio : 1.5
+Current ratio : 0
+Children age range : 2 - 3
+
+Printing office status : 
+========================
+Number : 1
+Size : 20 square meters 
+Is Occupied : true
+Office is busy : false
+
+Printing class status : 
+========================
+Number : 2
+Size : 1 square meters 
+Is Occupied : true
+Max number of children : 3
+Number of children : 3
+Number of teachers : 2
+Max value for ratio : 1.5
+Current ratio : 1.5
+Children age range : 2 - 3
+
+Printing childrens status : 
+========================
+Name : barney2
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+Name : barney3
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+Name : barney4
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+
+Printing teachers status : 
+========================
+Name : lily1
+Age : 90
+Seniority : 2
+Name : lily2
+Age : 91
+Seniority : 10
+
+Printing office status : 
+========================
+Number : 1
+Size : 20 square meters 
+Is Occupied : true
+Office is busy : false
+
+Printing class status : 
+========================
+Number : 2
+Size : 1 square meters 
+Is Occupied : true
+Max number of children : 3
+Number of children : 2
+Number of teachers : 2
+Max value for ratio : 1.5
+Current ratio : 1
+Children age range : 2 - 3
+
+Printing childrens status : 
+========================
+Name : barney3
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+Name : barney4
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+
+Printing teachers status : 
+========================
+Name : lily1
+Age : 90
+Seniority : 2
+Name : lily2
+Age : 91
+Seniority : 10
+
+Printing office status : 
+========================
+Number : 1
+Size : 20 square meters 
+Is Occupied : true
+Office is busy : false
+
+Printing class status : 
+========================
+Number : 2
+Size : 1 square meters 
+Is Occupied : true
+Max number of children : 3
+Number of children : 3
+Number of teachers : 2
+Max value for ratio : 1.5
+Current ratio : 1.5
+Children age range : 2 - 3
+
+Printing childrens status : 
+========================
+Name : barney3
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+Name : barney4
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+Name : barney6
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+
+Printing teachers status : 
+========================
+Name : lily1
+Age : 90
+Seniority : 2
+Name : lily2
+Age : 91
+Seniority : 10
+
+Printing office status : 
+========================
+Number : 1
+Size : 20 square meters 
+Is Occupied : true
+Office is busy : false
+
+Printing office status : 
+========================
+Number : 1
+Size : 20 square meters 
+Is Occupied : true
+Office is busy : false
+
+Printing class status : 
+========================
+Number : 2
+Size : 1 square meters 
+Is Occupied : true
+Max number of children : 100
+Number of children : 12
+Number of teachers : 1
+Max value for ratio : 78.5
+Current ratio : 12
+Children age range : 2 - 3
+
+Printing childrens status : 
+========================
+Name : barney2
+Age : 2
+Parent's Phone : 0542142239
+Is sick : false
+Name : barney3
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+Name : barney4
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+Name : barney5
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+Name : barney6
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+Name : barney7
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+Name : barney8
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+Name : barney9
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+Name : barney10
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+Name : barney11
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+Name : barney12
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+Name : barney13
+Age : 2
+Parent's Phone : 02313
+Is sick : false
+
+Printing teachers status : 
+========================
+Name : lily1
+Age : 90
+Seniority : 2
+
+Printing class status : 
+========================
+Number : 3
+Size : 60 square meters 
+Is Occupied : false
+Max number of children : 10
+Number of children : 0
+Number of teachers : 0
+Max value for ratio : 98.125
+Current ratio : 0
+Children age range : 3 - 4
+

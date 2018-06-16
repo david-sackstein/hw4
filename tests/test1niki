@@ -1,0 +1,45 @@
+Somtime, our best decisions are
+the one's that doesn't make sense at all
+addClass 1 1.500 3 2
+addClass 60 3.125 10 2
+addChild 2 barney1 02313
+PrintKindergarten
+addTeacher 90 lily1 2
+addTeacher 91 lily2 10
+addChild 2 barney2 02313
+addChild 2 barney3 02313
+addChild 2 barney4 02313
+addChild 2 barney5 02313
+PrintKindergarten
+removeChild barney2
+removeChild barney5
+PrintKindergarten
+addChild 2 barney6 02313
+removeTeacher lily1 
+removeTeacher niki 
+PrintKindergarten
+addTeacher 90 lily3 2
+removeTeacher lily1 
+removeClass 2 
+PrintKindergarten
+WOHOOOOOOOOOO
+addClass 1 78.500 100 2
+addClass 60 98.125 10 3
+addTeacher 90 lily1 2
+addChild 2 barney2 0542142239
+addChild 2 barney3 02313
+addChild 2 barney4 02313
+addChild 2 barney5 02313
+addChild 2 barney6 02313
+addChild 2 barney7 02313
+addChild 2 barney8 02313
+addChild 2 barney9 02313
+addChild 2 barney10 02313
+addChild 2 barney11 02313
+addChild 2 barney12 02313
+addChild 2 barney13 02313
+PrintKindergarten
+removeClass 2
+removeChild barney11
+removeTeacher lily1
+WOHOOOOOO

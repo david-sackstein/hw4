@@ -1,0 +1,13 @@
+ #!/bin/bash
+mkdir  "$1"
+
+for file in *; do
+	test "$file" != "$1" && cp "$file" "$1/"
+done
+
+for file in "$1"/*; do
+	grep -v '^ *	*//' "$file" > tmp_file
+	mv tmp_file "$file"
+done
+
+rm "$1/remove_comments"

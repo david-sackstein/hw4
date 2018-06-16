@@ -1,0 +1,10 @@
+Failed - addClass 43 2
+Failed - addClass 23 67 21 very big
+Failed - addTeacher 45 Miki -4
+Failed - addTeacher 33 Stav 4 -10
+Failed - addChild dana 05074592202
+Failed - addChild -4 aviad 0573849112 rom
+Failed - addChild 5 einav 05847392842
+Failed - addChild 3 shiraz 056473852
+Failed - removeChild dana yosi aviad
+Failed - removeChild beni

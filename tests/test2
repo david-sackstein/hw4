@@ -1,0 +1,29 @@
+addClass 43 2
+addClass 23 67 21 very big
+addClass 50 4.200 10 3
+
+addTeacher 45 Miki -4
+addTeacher 33 Stav 4 -10
+addTeacher 26 Moran 5
+
+addChild dana 05074592202
+addChild -4 aviad 0573849112 rom
+addChild 3 avihai 0583765844
+addChild 5 einav 05847392842
+
+
+PrintKindergarten
+
+sickChild avihai 
+
+addChild 3 shiraz 056473852
+
+PrintKindergarten
+
+removeChild dana yosi aviad
+removeChild beni
+removeChild avihai
+
+PrintKindergarten
+
+

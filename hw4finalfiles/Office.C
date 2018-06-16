@@ -167,7 +167,7 @@ Result Office::removeClass(size_t age)
         return FAILURE;
     }
 
-	for (vector<Class>::iterator curr = classes_.begin();
+	for (vector<Class>::const_iterator curr = classes_.cbegin();
 		curr != classes_.end();
 		++curr) {
 
